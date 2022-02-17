@@ -39,6 +39,7 @@ export default function ListItemForm({ fetchItems }) {
             Name
           {/* on change, update the name in state */}
           <input
+            onChange={e => setName(e.target.value)} value={name}
             // this should be a controlled input, soi set the value based on state 
             required 
             name="name" />
