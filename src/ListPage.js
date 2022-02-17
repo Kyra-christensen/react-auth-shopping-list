@@ -7,15 +7,21 @@ export default function ListPage() {
   const [listItems, setShoppingList] = useState([]);
 
   // on load, call the fetchItems function (remember: useEffect)
+  useEffect(() => {
+    fetchItems();
+  }, []);
 
   async function fetchItems() {
     // fetch the list items and inject them into state
+    const items = await getListItems();
+    setShoppingList(items);
   }
 
   async function handleDeleteClick() {
     // delete all items
-
+    await deleteAllItems();
     // then call your fetchItems function to fetch and re-display
+    fetchItems();
   }
 
   return (
